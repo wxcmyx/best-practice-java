@@ -10,4 +10,5 @@ git测试，git工具熟悉，git ui工具试用<br>
 使用testng单元测试框架<br>
 2018-03-31<br>
 增加工具类SqlBuilder类（org.sidao.bp.db.SqlBuilder），及其用法：(org.sidao.bp.AppTest)<br>
-引入了<a href="https://gitee.com/loolly/hutool/" target="_blank">hutool</a>工具包,文档请参考：<a href="http://hutool.mydoc.io/" target="_blank">Hutool官网</a>
+使用<a href="https://gitee.com/loolly/hutool/" target="_blank">Hutool</a>工具包,文档请参考：<a href="http://hutool.mydoc.io/" target="_blank">Hutool官网</a><br>
+使用阿里云SDK（aliyun-java-sdk-alidns），实现阿里域名动态解析，文档请参考<a href="https://help.aliyun.com/document_detail/29739.html?spm=a2c4g.11186623.6.584.N9gLFg" target="_blank">阿里官方文档</a><br>
