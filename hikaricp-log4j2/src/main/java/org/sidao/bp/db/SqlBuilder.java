@@ -2,6 +2,10 @@ package org.sidao.bp.db;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
+import com.mysql.jdbc.StringUtils;
+
+import bsh.StringUtil;
+import cn.hutool.core.util.StrUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -210,6 +214,9 @@ public class SqlBuilder {
 
 	public String build() {
 		return SQL();
+	}
+	public String buildOneline() {
+		return StrUtil.replace(SQL(), "\n", " ");
 	}
 
 	private static class SafeAppendable {
