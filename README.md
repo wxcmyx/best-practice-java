@@ -10,4 +10,4 @@ git测试，git工具熟悉，git ui工具试用<br>
 使用testng单元测试框架<br>
 2018-03-31<br>
 增加工具类SqlBuilder类（org.sidao.bp.db.SqlBuilder），及其用法：(org.sidao.bp.AppTest)<br>
-引入了<a href="https://gitee.com/loolly/hutool/" target="_blank">hutool</a>工具包,文档文件请参考：<a href="http://hutool.mydoc.io/" target="_blank">Hutool官网</a>
+引入了<a href="https://gitee.com/loolly/hutool/" target="_blank">hutool</a>工具包,文档请参考：<a href="http://hutool.mydoc.io/" target="_blank">Hutool官网</a>
