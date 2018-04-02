@@ -3,6 +3,9 @@
  */
 package org.sidao.bp.aliyun;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 import java.util.List;
 
 import com.aliyuncs.DefaultAcsClient;
@@ -23,6 +26,11 @@ import com.jfinal.kit.PropKit;
  *
  */
 public class AliyunDNSR {
+	/**
+	 * Logger for this class
+	 */
+	private static final Logger logger = LogManager.getLogger(AliyunDNSR.class.getName());
+
 	private String aliKeyId;
 	private String aliKeySecret;
 	private static IAcsClient client = null;
@@ -64,21 +72,28 @@ public class AliyunDNSR {
 	 * @return 返回的记录ID
 	 */
 	public String update(String recordId,String ip) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("update(String, String) - start"); //$NON-NLS-1$
+		}
+
 		UpdateDomainRecordRequest request = new UpdateDomainRecordRequest();
-//		request.setRecordId("3827828807455744");
 		request.setRecordId(recordId);
 		request.setValue(ip);
+		request.setRR("@");
+		request.setType("A");
 		UpdateDomainRecordResponse response;
 		String respRecordId=null;
 		try {
 			response = client.getAcsResponse(request);
 			respRecordId = response.getRecordId();
-			//System.out.println(recordId);
-			
 		} catch (ServerException e) {
-			e.printStackTrace();
+			logger.error("update(String, String)", e); //$NON-NLS-1$
 		} catch (ClientException e) {
-			e.printStackTrace();
+			logger.error("update(String, String)", e); //$NON-NLS-1$
+		}
+
+		if (logger.isDebugEnabled()) {
+			logger.debug("update(String, String) - end"); //$NON-NLS-1$
 		}
 		return respRecordId;
 	}
