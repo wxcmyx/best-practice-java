@@ -8,8 +8,9 @@ Describe your project here.
 
 - Java 1.8+
 - Maven 3.3+
-- PostgreSQL 9.0+
-- Node.js, Grunt and Bower
+- MySQL 9.0+
+- Spring-boot 2.02+
+- Jfinal 3.4+
 
 ## Installation
 
