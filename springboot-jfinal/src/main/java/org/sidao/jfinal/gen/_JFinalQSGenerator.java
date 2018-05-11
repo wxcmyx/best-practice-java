@@ -4,7 +4,6 @@ import com.jfinal.kit.PathKit;
 import com.jfinal.kit.Prop;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.generator.Generator;
-import com.jfinal.plugin.druid.DruidPlugin;
 
 import javax.sql.DataSource;
 
@@ -18,7 +17,7 @@ public class _JFinalQSGenerator {
         String url = prop.get("spring.datasource.ds1.url");
         String username = prop.get("spring.datasource.ds1.username");
         String password = prop.get("spring.datasource.ds1.password");
-        DruidPlugin druidPlugin = new DruidPlugin(url, username, password);
+        HikariCpPlugin druidPlugin = new HikariCpPlugin(url, username, password);
         druidPlugin.start();
         return druidPlugin.getDataSource();
     }
@@ -31,7 +30,7 @@ public class _JFinalQSGenerator {
         // base model 所使用的包名
         String baseModelPackageName = "org.sidao.jfinal.model";
         // base model 文件保存路径
-        String baseModelOutputDir = PathKit.getWebRootPath() + "src/main/java/org/sidao/jfinal/model/base";
+        String baseModelOutputDir = PathKit.getWebRootPath() + "/src/main/java/org/sidao/jfinal/model/base";
 
         // model 所使用的包名 (MappingKit 默认使用的包名)
         String modelPackageName = "org.sidao.jfinal.model";

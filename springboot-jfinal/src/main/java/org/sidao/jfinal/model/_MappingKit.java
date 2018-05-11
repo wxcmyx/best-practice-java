@@ -14,8 +14,9 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
  * </pre>
  */
 public class _MappingKit {
-
+	
 	public static void mapping(ActiveRecordPlugin arp) {
-
+		arp.addMapping("githubproject", "ID", Githubproject.class);
 	}
 }
+

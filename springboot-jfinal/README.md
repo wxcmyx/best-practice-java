@@ -8,7 +8,7 @@ Describe your project here.
 
 - Java 1.8+
 - Maven 3.3+
-- MySQL 9.0+
+- MySQL 5.6+
 - Spring-boot 2.02+
 - Jfinal 3.4+
 
