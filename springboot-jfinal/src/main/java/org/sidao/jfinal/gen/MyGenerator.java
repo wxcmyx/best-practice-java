@@ -3,7 +3,6 @@ package org.sidao.jfinal.gen;
 import com.jfinal.plugin.activerecord.generator.BaseModelGenerator;
 import com.jfinal.plugin.activerecord.generator.Generator;
 import com.jfinal.plugin.activerecord.generator.ModelGenerator;
-import org.sidao.springboot.domain.MyMetaBuilder;
 
 import javax.sql.DataSource;
 
