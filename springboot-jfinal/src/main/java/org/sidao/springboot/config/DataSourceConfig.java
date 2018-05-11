@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 
 /**
  * HikariCP连接池配置
@@ -43,6 +44,11 @@ public class DataSourceConfig {
     @ConfigurationProperties("spring.datasource.ds2")
     public DataSource secondDataSource() {
         HikariDataSource ds= (HikariDataSource) secondDataSourceProperties().initializeDataSourceBuilder().build();
+        try {
+            System.out.println("flag------>" + ds.getConnection());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 //        ActiveRecordPlugin plugin = new ActiveRecordPlugin("ds2",ds);
 //        _MappingKit2.mapping(plugin);
 //        plugin.start();
