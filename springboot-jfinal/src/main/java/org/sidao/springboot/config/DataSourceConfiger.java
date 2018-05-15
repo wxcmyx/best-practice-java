@@ -14,10 +14,10 @@ import org.springframework.context.annotation.Primary;
 import javax.sql.DataSource;
 
 /**
- * HikariCP连接池配置
+ * 配置多个HikariCP连接池配置，配置到jfinal使用的链接当中
  */
 @Configuration
-public class DataSourceConfig {
+public class DataSourceConfiger {
 
     @Bean
     @Primary
@@ -49,7 +49,8 @@ public class DataSourceConfig {
     @Bean
     @DependsOn("ds1")
     public ActiveRecordPlugin activeFirstDatasource() {
-        ActiveRecordPlugin plugin = new ActiveRecordPlugin("ds1",firstDataSource());
+        DataSource ds=firstDataSource();
+        ActiveRecordPlugin plugin = new ActiveRecordPlugin("ds1",ds);
         _MappingKit.mapping(plugin);
         plugin.start();
         return plugin;
@@ -62,4 +63,5 @@ public class DataSourceConfig {
         plugin.start();
         return plugin;
     }
+
 }

@@ -1,4 +1,4 @@
-package org.sidao.jfinal.model;
+package org.sidao.jfinal.model.base;
 
 import com.jfinal.plugin.activerecord.Model;
 import com.jfinal.plugin.activerecord.IBean;
@@ -12,7 +12,7 @@ public abstract class BaseGithubproject<M extends BaseGithubproject<M>> extends 
 	public void setID(java.lang.Long ID) {
 		set("ID", ID);
 	}
-	
+
 	public java.lang.Long getID() {
 		return getLong("ID");
 	}
@@ -20,7 +20,7 @@ public abstract class BaseGithubproject<M extends BaseGithubproject<M>> extends 
 	public void setURL(java.lang.String URL) {
 		set("URL", URL);
 	}
-	
+
 	public java.lang.String getURL() {
 		return getStr("URL");
 	}
@@ -28,7 +28,7 @@ public abstract class BaseGithubproject<M extends BaseGithubproject<M>> extends 
 	public void setNAME(java.lang.String NAME) {
 		set("NAME", NAME);
 	}
-	
+
 	public java.lang.String getNAME() {
 		return getStr("NAME");
 	}
@@ -36,7 +36,7 @@ public abstract class BaseGithubproject<M extends BaseGithubproject<M>> extends 
 	public void setLANG(java.lang.String LANG) {
 		set("LANG", LANG);
 	}
-	
+
 	public java.lang.String getLANG() {
 		return getStr("LANG");
 	}
@@ -44,7 +44,7 @@ public abstract class BaseGithubproject<M extends BaseGithubproject<M>> extends 
 	public void setCOMMENT(java.lang.String COMMENT) {
 		set("COMMENT", COMMENT);
 	}
-	
+
 	public java.lang.String getCOMMENT() {
 		return getStr("COMMENT");
 	}
@@ -52,7 +52,7 @@ public abstract class BaseGithubproject<M extends BaseGithubproject<M>> extends 
 	public void setUPDATE(java.lang.String UPDATE) {
 		set("UPDATE", UPDATE);
 	}
-	
+
 	public java.lang.String getUPDATE() {
 		return getStr("UPDATE");
 	}
@@ -60,7 +60,7 @@ public abstract class BaseGithubproject<M extends BaseGithubproject<M>> extends 
 	public void setDESCRIPT(java.lang.String DESCRIPT) {
 		set("DESCRIPT", DESCRIPT);
 	}
-	
+
 	public java.lang.String getDESCRIPT() {
 		return getStr("DESCRIPT");
 	}
@@ -68,7 +68,7 @@ public abstract class BaseGithubproject<M extends BaseGithubproject<M>> extends 
 	public void setSTAR(java.lang.Integer STAR) {
 		set("STAR", STAR);
 	}
-	
+
 	public java.lang.Integer getSTAR() {
 		return getInt("STAR");
 	}
