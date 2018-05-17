@@ -17,5 +17,6 @@ spring:
       driver-class-name: com.mysql.jdbc.Driver
       type: com.zaxxer.hikari.HikariDataSource
       pool-name: DatebookHikariCP2
-
-
+  jackson:
+    serialization:
+      indent-output: true

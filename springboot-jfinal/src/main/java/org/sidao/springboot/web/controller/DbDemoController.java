@@ -32,7 +32,9 @@ public class DbDemoController {
         Map countMap=  db.queryForMap("select count(*) count from githubproject");
         Record record= Db.use("ds1").findFirst("select count(*) count from githubproject");
         record.set("other",countMap.get("count"));
-        return new Result().setData(record);
+        Record recordc=Db.use("ds1").findFirstByCache("User","count","select count(*) count from githubproject");
+        record.set("recordc",recordc.getInt("count"));
+        return new Result().setData(record.getColumns());
     }
 
 }

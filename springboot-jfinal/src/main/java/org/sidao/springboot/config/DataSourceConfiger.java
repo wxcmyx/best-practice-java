@@ -1,6 +1,7 @@
 package org.sidao.springboot.config;
 
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
+import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.zaxxer.hikari.HikariDataSource;
 import org.sidao.jfinal.model._MappingKit;
 import org.sidao.jfinal.model._MappingKit2;
@@ -53,6 +54,7 @@ public class DataSourceConfiger {
         ActiveRecordPlugin plugin = new ActiveRecordPlugin("ds1",ds);
         _MappingKit.mapping(plugin);
         plugin.start();
+        new EhCachePlugin().start();//启动ehcache
         return plugin;
     }
     @Bean
