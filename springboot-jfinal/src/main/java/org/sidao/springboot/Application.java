@@ -13,6 +13,5 @@ public class Application {
         app.setBannerMode(Banner.Mode.OFF);//关闭banner
         app.addListeners();
         app.run(args);
-
    }
 }

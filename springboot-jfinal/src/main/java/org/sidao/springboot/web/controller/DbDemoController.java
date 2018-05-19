@@ -5,6 +5,7 @@ import com.jfinal.plugin.activerecord.Record;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.sidao.springboot.service.GithubprojectService;
 import org.sidao.springboot.web.rest.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -23,6 +24,8 @@ public class DbDemoController {
 
     @Autowired
     private JdbcTemplate db;
+    @Autowired
+    private GithubprojectService githubprojectService;
 
     @ApiOperation("获取项目总数")
     @GetMapping("/api/hello")
@@ -34,6 +37,7 @@ public class DbDemoController {
         record.set("other",countMap.get("count"));
         Record recordc=Db.use("ds1").findFirstByCache("User","count","select count(*) count from githubproject");
         record.set("recordc",recordc.getInt("count"));
+        record.set("mybatiC",githubprojectService.findAll().size());
         return new Result().setData(record.getColumns());
     }
 

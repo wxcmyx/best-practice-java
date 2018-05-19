@@ -20,3 +20,11 @@ spring:
   jackson:
     serialization:
       indent-output: true
+mybatis:
+  config-location: classpath:mybatis-config.xml
+mapper:
+  not-empty: true
+  before: true
+  mappers:
+    - org.sidao.springboot.mapper.BaseMapper
+    - tk.mybatis.mapper.common.Mapper
