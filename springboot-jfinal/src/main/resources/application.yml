@@ -26,5 +26,5 @@ mapper:
   not-empty: true
   before: true
   mappers:
-    - org.sidao.springboot.mapper.BaseMapper
+    - org.sidao.springboot.common.BaseMapper
     - tk.mybatis.mapper.common.Mapper

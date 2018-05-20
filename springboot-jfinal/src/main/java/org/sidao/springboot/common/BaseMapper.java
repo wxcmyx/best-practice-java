@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package org.sidao.springboot.mapper;
+package org.sidao.springboot.common;
 
 import tk.mybatis.mapper.common.Mapper;
 

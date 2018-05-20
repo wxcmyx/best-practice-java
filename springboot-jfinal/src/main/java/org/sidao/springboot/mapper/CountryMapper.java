@@ -26,6 +26,7 @@ package org.sidao.springboot.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.sidao.springboot.domain.Country;
+import org.sidao.springboot.common.BaseMapper;
 
 import java.util.List;
 

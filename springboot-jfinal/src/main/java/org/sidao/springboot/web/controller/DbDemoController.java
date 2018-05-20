@@ -5,6 +5,7 @@ import com.jfinal.plugin.activerecord.Record;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.sidao.springboot.mapper.OpenopenMapper;
 import org.sidao.springboot.service.GithubprojectService;
 import org.sidao.springboot.web.rest.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class DbDemoController {
     @Autowired
     private GithubprojectService githubprojectService;
 
+    @Autowired
+    private OpenopenMapper openopenMapper;
+
     @ApiOperation("获取项目总数")
     @GetMapping("/api/hello")
     @ResponseBody
@@ -39,6 +43,12 @@ public class DbDemoController {
         record.set("recordc",recordc.getInt("count"));
         record.set("mybatiC",githubprojectService.findAll().size());
         return new Result().setData(record.getColumns());
+    }
+    @ApiOperation("获取开源网站日期")
+    @GetMapping("/api/open")
+    @ResponseBody
+    public Object openopen(){
+        return new Result().setCode(0).setData(openopenMapper.selectAll());
     }
 
 }

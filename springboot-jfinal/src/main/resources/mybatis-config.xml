@@ -33,5 +33,6 @@
     <mappers>
         <mapper resource="org/sidao/springboot/mapper/CountryMapper.xml"/>
         <mapper resource="org/sidao/springboot/mapper/GithubprojectMapper.xml"/>
+        <mapper resource="org/sidao/springboot/mapper/OpenopenMapper.xml"/>
     </mappers>
 </configuration>

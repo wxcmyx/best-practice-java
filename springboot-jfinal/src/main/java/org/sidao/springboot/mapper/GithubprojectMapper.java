@@ -26,6 +26,7 @@ package org.sidao.springboot.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.sidao.springboot.domain.Githubproject;
+import org.sidao.springboot.common.BaseMapper;
 
 import java.util.List;
 
@@ -33,7 +34,7 @@ import java.util.List;
  * @author Eduardo Macarron
  */
 @Mapper
-public interface GithubprojectMapper extends BaseMapper<Githubproject>{
+public interface GithubprojectMapper extends BaseMapper<Githubproject> {
 
     List<Githubproject> findAll();
 

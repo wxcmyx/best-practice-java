@@ -1,4 +1,4 @@
-package org.sidao.springboot.repository;
+package org.sidao.springboot.common;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
