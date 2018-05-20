@@ -18,7 +18,7 @@ git测试，git工具熟悉，git ui工具试用<br>
 <br>
 2018-05-10<br>
 # <span>分享项目：</span>springboot-jfinal<br>
-<span color="red">该项目目前为未完成版本<span><br>
+<span >该项目使用springboot的开放和可扩展性好对集群，云等支持到位，使用jfinal对数据操作的方便与灵活快捷，同时集成了mybatis，满足部分人的使用习惯和知识积累。<span><br>
 集成:<br>
 Jfianl3.4+<br>
 Spring-boot 2.02+<br>
