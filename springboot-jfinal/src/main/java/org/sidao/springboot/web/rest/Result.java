@@ -1,6 +1,10 @@
 package org.sidao.springboot.web.rest;
 
-public class Result {
+import com.jfinal.kit.JsonKit;
+
+import java.io.Serializable;
+
+public class Result implements Serializable {
     /**
      * 状态码：0，成功，1，失败
      */
@@ -90,4 +94,8 @@ public class Result {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return JsonKit.toJson(this);
+    }
 }

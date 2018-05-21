@@ -12,7 +12,9 @@ spring:
     user:
       name: admin
       password: admin
-
+  redis:
+    host: localhost
+    port: 6379
 # See: https://github.com/javamelody/javamelody/wiki/UserGuide#6-optional-parameters
 javamelody:
   #advisor-auto-proxy-creator-enabled: false

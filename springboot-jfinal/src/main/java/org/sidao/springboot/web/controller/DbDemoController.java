@@ -10,6 +10,8 @@ import org.sidao.springboot.service.GithubprojectService;
 import org.sidao.springboot.web.rest.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.data.redis.core.RedisKeyValueTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,11 +27,15 @@ public class DbDemoController {
 
     @Autowired
     private JdbcTemplate db;
+
     @Autowired
     private GithubprojectService githubprojectService;
 
     @Autowired
     private OpenopenMapper openopenMapper;
+
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
 
     @ApiOperation("获取项目总数")
     @GetMapping("/api/hello")
@@ -49,6 +55,13 @@ public class DbDemoController {
     @ResponseBody
     public Object openopen(){
         return new Result().setCode(0).setData(openopenMapper.selectAll());
+    }
+    @ApiOperation("获取开源网站日期")
+    @GetMapping("/api/redisuse")
+    @ResponseBody
+    public Object redisuse(){
+        stringRedisTemplate.opsForValue().set("one",new Result().setCode(1).setData("oooooo").toString());
+        return stringRedisTemplate.opsForValue().get("one");
     }
 
 }
