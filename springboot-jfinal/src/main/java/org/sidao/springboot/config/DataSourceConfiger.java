@@ -5,6 +5,7 @@ import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.zaxxer.hikari.HikariDataSource;
 import org.sidao.jfinal.model._MappingKit;
 import org.sidao.jfinal.model._MappingKit2;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +20,11 @@ import javax.sql.DataSource;
  */
 @Configuration
 public class DataSourceConfiger {
+
+    @Value("${spring.redis.host}")
+    private String redisHost;
+    @Value("${spring.redis.port}")
+    private int redisPort;
 
     @Bean
     @Primary
@@ -55,6 +61,7 @@ public class DataSourceConfiger {
         _MappingKit.mapping(plugin);
         plugin.start();
         new EhCachePlugin().start();//启动ehcache
+//        new RedisPlugin("redisCache",redisHost,redisPort).start();
         return plugin;
     }
     @Bean
@@ -69,9 +76,8 @@ public class DataSourceConfiger {
 //    @Bean
 //    public RedisConnectionFactory lettuceConnectionFactory() {
 //        RedisSentinelConfiguration sentinelConfig = new RedisSentinelConfiguration()
-//            .master("mymaster")
-//            .sentinel("127.0.0.1", 26379)
-//            .sentinel("127.0.0.1", 26380);
+//            .master("master")
+//            .sentinel(redisHost, redisPort);
 //        return new LettuceConnectionFactory(sentinelConfig);
 //    }
 

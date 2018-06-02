@@ -7,7 +7,7 @@
         <encoder>
             <!--<pattern>%d %p (%file:%line\)- %m%n</pattern>-->
             <!--格式化输出：%d:表示日期    %thread:表示线程名     %-5level:级别从左显示5个字符宽度  %msg:日志消息    %n:是换行符-->
-            <pattern>1-%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n</pattern>
+            <pattern>1-%d{MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n</pattern>
             <charset>GBK</charset>
         </encoder>
     </appender>
@@ -149,11 +149,11 @@
     <!--</appender>-->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger Line:%-3L - %msg%n</pattern>
+            <pattern>%d{MM-dd HH:mm:ss.SSS} %-5level %logger Line:%-3L - %msg%n</pattern>
             <!--<charset>GBK</charset>-->
         </encoder>
     </appender>
-    <logger name="com.minlia" level="DEBUG"/>
+    <logger name="org.sidao" level="DEBUG"/>
     <logger name="org.springframework.data.mybatis" level="DEBUG"/>
     <logger name="org.springframework.aop.aspectj" level="ERROR"/>
 
@@ -195,7 +195,7 @@
     <!--</contextListener>-->
 
     <springProfile name="prod">
-        <root level="DEBUG">
+        <root level="WARN">
             <!--<appender-ref ref="FILEERROR"/>-->
             <!--<appender-ref ref="FILEWARN"/>-->
             <!--<appender-ref ref="FILEINFO"/>-->
@@ -207,7 +207,7 @@
 
 
     <springProfile name="dev">
-        <root level="error">
+        <root level="WARN">
             <!--<appender-ref ref="FILEERROR"/>-->
             <!--<appender-ref ref="FILEWARN"/>-->
             <!--<appender-ref ref="FILEINFO"/>-->

@@ -13,7 +13,7 @@
     <groupId>org.sidao</groupId>
     <artifactId>springboot-jfinal</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>springboot-jfinal</name>
     <description>springboot-jfinal project for Spring Boot</description>
@@ -23,7 +23,6 @@
     </prerequisites>
 
     <!-- Properties -->
-
     <properties>
         <spring-data-releasetrain.version>Fowler-SR2</spring-data-releasetrain.version>
         <java.version>1.8</java.version>
@@ -45,16 +44,30 @@
         <Lombok.version>1.16.20</Lombok.version>
         <Contiperf.version>2.3.4</Contiperf.version>
         <Jaxb.version>2.3.0</Jaxb.version>
-
+        <CommonPool2.version>2.5.0</CommonPool2.version>
+        <CommonLang3.version>3.7</CommonLang3.version>
+        <Fst.version>2.57</Fst.version>
+        <Jedis.version>2.9.0</Jedis.version>
+        <Servlet.version>3.1.0</Servlet.version>
     </properties>
 
     <!-- Dependencies -->
-
     <dependencies>
         <!--springboot基本-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <!--<scope>provided</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${Servlet.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -98,14 +111,15 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <exclusions>
                 <exclusion>
-                    <groupId>redis.clients</groupId>
-                    <artifactId>jedis</artifactId>
-                </exclusion>
-                <exclusion>
                     <groupId>org.springframework.data</groupId>
                     <artifactId>spring-data-redis</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${Jedis.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
@@ -125,7 +139,32 @@
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
         </dependency>
+        <!--mongodb-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>${SpingDateRedis.version}</version>
+        </dependency>
         <!-- common tool -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>${CommonPool2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${CommonLang3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.ruedigermoeller</groupId>
+            <artifactId>fst</artifactId>
+            <version>${Fst.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -228,7 +267,6 @@
     </repositories>
 
     <!-- Plugin Repositories -->
-
     <pluginRepositories>
         <pluginRepository>
             <id>spring-snapshots</id>
@@ -249,9 +287,15 @@
     </pluginRepositories>
 
     <!-- Build -->
-
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
             <!-- Plugin : Spring Boot -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -280,7 +324,18 @@
                 </dependencies>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
-
-
 </project>

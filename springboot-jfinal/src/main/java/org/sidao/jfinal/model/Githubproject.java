@@ -8,4 +8,6 @@ import org.sidao.jfinal.model.base.BaseGithubproject;
 @SuppressWarnings("serial")
 public class Githubproject extends BaseGithubproject<Githubproject> {
 	public static final Githubproject dao = new Githubproject().dao();
+
+
 }
